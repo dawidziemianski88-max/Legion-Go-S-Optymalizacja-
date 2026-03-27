@@ -1,0 +1,519 @@
+INSTRUKCJA KONFIGURACJI – USTAW SWOJEGO LEGIONA
+
+===========================================
+
+Czytaj krok po kroku. Nie pomijaj żadnego kroku!
+
+Masz pendrive 32 GB? Połóż go obok – będzie potrzebny w Kroku 3.
+
+
+
+
+
+===========================================
+
+KROK 1 – BIOS (zrób to PRZED włączeniem Windowsa)
+
+===========================================
+
+
+
+1. Wyłącz konsolę do końca.
+
+2. Przytrzymaj przycisk GŁOŚNOŚCI W GÓRĘ i naciśnij POWER.
+
+3. Na ekranie wybierz: BIOS Setup
+
+4. Kliknij zakładkę: Configuration
+
+5. Znajdź: UMA Frame Buffer Size – zmień na 4G
+
+6. Wciśnij F10, wybierz Yes.
+
+7. Konsola uruchomi się normalnie.
+
+
+
+
+
+===========================================
+
+KROK 2 – KONTO (bez maila Microsoftu)
+
+===========================================
+
+
+
+1. Gdy pojawi się ekran z listą sieci Wi-Fi –
+
+NIE łącz się z siecią.
+
+2. W prawym dolnym rogu kliknij ikonkę ludzika
+
+(Ułatwienia dostępu).
+
+3. Wybierz z listy: Klawiatura ekranowa.
+
+4. Na tej klawiaturze kliknij SHIFT (aż się podświetli),
+
+a potem F10.
+
+5. W czarnym oknie które wyskoczy wpisz dokładnie:
+
+start ms-cxh:localonly
+
+i naciśnij Enter (na klawiaturze ekranowej).
+
+6. Ustaw nazwę i hasło – zapamiętaj je!
+
+
+
+PLAN B (jeśli okno się nie otworzyło):
+
+W tym samym czarnym oknie wpisz kolejno:
+
+net user TwojaNazwa * /add
+
+net localgroup administrators TwojaNazwa /add
+
+shutdown /r /t 0
+
+(zamiast "TwojaNazwa" wpisz wybraną nazwę użytkownika)
+
+Konsola uruchomi się ponownie z lokalnym kontem.
+
+
+
+PLAN C (najprostszy):
+
+Połącz się z Wi-Fi, przejdź normalną instalację.
+
+Po wejściu na pulpit: Ustawienia -> Konta ->
+
+Zaloguj się przy użyciu konta lokalnego.
+
+
+
+
+
+===========================================
+
+KROK 3 – GŁÓWNY SKRYPT (automat)
+
+===========================================
+
+
+
+1. Połącz się z internetem.
+
+2. Pobierz plik LegionGoS_Setup_FINAL.ps1 i zapisz na Pulpicie.
+
+3. Kliknij na niego PRAWYM przyciskiem myszy.
+
+4. Wybierz: Uruchom za pomocą programu PowerShell
+
+5. Jeśli wyskoczy pytanie o uprawnienia – kliknij TAK.
+
+6. Skrypt zapyta o profil – wpisz T i Enter.
+
+7. Skrypt zapyta czy zainstalować Steam/Playnite/FXSound
+
+automatycznie – wpisz T i Enter (zrobi to sam w tle!).
+
+8. Gdy skrypt zapyta o ścieżkę ISLC – wciśnij Enter
+
+(ISLC instalujesz później w Kroku 10).
+
+9. Skrypt zapyta czy otworzyć strony dla sterowników – wpisz T.
+
+10. Podłącz pendrive 32 GB – skrypt zapyta o dysk odzyskiwania,
+
+wpisz T i Enter.
+
+11. Poczekaj aż skończy (około 10 minut).
+
+12. URUCHOM PONOWNIE KONSOLĘ – skrypt o to poprosi.
+
+Jest to wymagane przez wyłączenie Memory Integrity.
+
+
+
+Skrypt sam zrobi:
+
+- usunięcie OneDrive (razem z ikoną i folderem)
+
+- hibernację (konsola nie traci baterii w etui)
+
+- ochronę sterowników
+
+- ochronę przed skanowaniem antywirusa podczas gier
+
+- wyłączenie Memory Integrity (zysk 5-15% FPS w grach)
+
+- punkt przywracania "STAN WYJSCIOWY"
+
+- instalację Steam, Playnite i FXSound bez klikania
+
+- otworzy strony dla sterowników i LLT
+
+
+
+
+
+===========================================
+
+KROK 4 – STEROWNIKI LENOVO
+
+===========================================
+
+
+
+1. W przeglądarce otworzyła się strona Lenovo.
+
+2. Pobierz i zainstaluj w tej kolejności:
+
+- Chipset Driver (najpierw!)
+
+- VGA Driver (grafika)
+
+3. Uruchom ponownie konsolę gdy program o to poprosi.
+
+
+
+
+
+===========================================
+
+KROK 5 – LEGION TOOLKIT (LLT)
+
+===========================================
+
+
+
+Zainstaluj LLT ze strony która otworzyła się w przeglądarce (GitHub).
+
+
+
+Po uruchomieniu LLT ustaw:
+
+
+
+A) Battery Conservation Mode
+
+Znajdź tę opcję i włącz ją (chroni baterię gdy grasz na kablu).
+
+
+
+B) Przycisk Legion L – Atomowy Reset (gdy gra się zawiesi)
+
+Wejdź w: Actions -> Shortcuts -> dodaj nowy skrót
+
+Przycisk: Legion L
+
+Komenda: taskkill /f /im explorer.exe && timeout /t 2 && start explorer.exe
+
+
+
+C) Przycisk Legion R – Klawiatura ekranowa
+
+Wejdź w: Actions -> Shortcuts -> dodaj nowy skrót
+
+Przycisk: Legion R
+
+Akcja: Toggle Touch Keyboard
+
+(klawiatura pojawi się w każdej grze gdy musisz coś wpisać)
+
+
+
+D) Per-game ustawienia – dodaj gry do LLT Actions
+
+Wejdź w: Actions -> Add -> wyszukaj plik .exe gry
+
+
+
+Ciężkie gry AAA (Cyberpunk, Hogwarts, Elden Ring, Wiedzmin):
+
+- Tryb: Performance
+
+- TDP: 25-30W
+
+- CPU Boost: wyłącz TYLKO gdy konsola bardzo się grzeje
+
+
+
+Lekkie gry (Hades, Stardew Valley, Dead Cells, Hollow Knight):
+
+- Tryb: Balanced
+
+- TDP: 10-15W
+
+- CPU Boost: włączony
+
+
+
+
+
+===========================================
+
+KROK 6 – AMD ADRENALIN (limity FPS)
+
+===========================================
+
+
+
+Otwórz AMD Software: Adrenalin Edition
+
+(zainstalował się automatycznie ze sterownikami).
+
+
+
+A) Ustawienia globalne (dla wszystkich gier):
+
+- Włącz AMD Chill -> Min: 40, Max: 60
+
+
+
+B) Per-game ustawienia – ciężkie gry AAA:
+
+Kliknij + Dodaj grę -> wybierz grę
+
+AMD Chill -> Min: 38, Max: 40
+
+
+
+C) Per-game ustawienia – lekkie gry indie:
+
+Kliknij + Dodaj grę -> wybierz grę
+
+AMD Chill -> Min: 48, Max: 60
+
+
+
+
+
+===========================================
+
+KROK 7 – EKRAN
+
+===========================================
+
+
+
+1. Kliknij prawym na Pulpicie -> Ustawienia ekranu
+
+2. Zaawansowane ustawienia ekranu
+
+3. Ustaw odświeżanie: 120 Hz
+
+4. Ustaw rozdzielczość: 1280 x 800
+
+
+
+
+
+===========================================
+
+KROK 8 – STEAM
+
+===========================================
+
+
+
+Steam zainstalował się już automatycznie w Kroku 3.
+
+
+
+1. Otwórz Steam i zaloguj się.
+
+2. Ustawienia -> Kontroler
+
+3. Deadzone analogów: ustaw na 3-5%
+
+4. Domyślny układ Steam Input: Gamepad
+
+
+
+
+
+===========================================
+
+KROK 9 – PLAYNITE (interfejs konsolowy)
+
+===========================================
+
+
+
+Playnite zainstalował się już automatycznie w Kroku 3.
+
+
+
+1. Otwórz Playnite.
+
+2. Wybierz tryb: Fullscreen
+
+3. Ustawienia -> Ogólne -> włącz: Uruchamiaj przy starcie Windows
+
+4. Dodaj swoje gry do biblioteki.
+
+5. Gdy chcesz wejść do normalnego Windowsa:
+
+Menu Playnite -> Przejdź do pulpitu
+
+
+
+
+
+===========================================
+
+KROK 10 – ISLC (koniec z zacięciami w grach)
+
+===========================================
+
+
+
+1. Zainstaluj ISLC ze strony wagnardsoft.com
+
+(strona otworzyła się już w przeglądarce)
+
+2. Ustaw:
+
+Free Memory Is Less Than = 4000 MB
+
+Polling Rate = 500 ms
+
+3. Zaznacz: Enable timer
+
+4. WAŻNE: ODZNACZ "Use Timer Resolution"
+
+(jeśli tego nie zrobisz konsola będzie szybciej
+
+tracić baterię!)
+
+5. NIE zaznaczaj "Launch on startup" – skrypt już zadbał
+
+o automatyczne uruchamianie bez okna UAC.
+
+6. Kliknij Start.
+
+7. Uruchom ponownie skrypt LegionGoS_Setup_FINAL.ps1
+
+i gdy zapyta o ścieżkę ISLC – wpisz pełną ścieżkę
+
+do pliku ISLC.exe (np. C:\Program Files\ISLC\ISLC.exe)
+
+
+
+
+
+===========================================
+
+KROK 11 – FXSOUND (lepszy dźwięk)
+
+===========================================
+
+
+
+FXSound zainstalował się już automatycznie w Kroku 3.
+
+
+
+1. Otwórz FXSound.
+
+2. Ustaw preset: Gaming lub Music.
+
+3. Program uruchamia się sam z Windowsem.
+
+
+
+
+
+===========================================
+
+KROK 12 – KARTA MICROSD
+
+===========================================
+
+
+
+1. Włóż kartę microSD do konsoli.
+
+2. Wciśnij Win + X -> Zarządzanie dyskami
+
+3. Znajdź kartę SD na liście.
+
+4. Kliknij prawym -> Zmień literę dysku -> ustaw literę M
+
+
+
+
+
+===========================================
+
+KROK 13 – WERYFIKACJA
+
+===========================================
+
+
+
+1. Pobierz plik LegionGoS_Weryfikacja_FINAL.ps1
+
+2. Kliknij prawym -> Uruchom jako administrator
+
+3. Poczekaj aż skończy.
+
+4. Na Pulpicie pojawi się plik: LegionGoS_Raport.txt
+
+5. Otwórz go.
+
+Jeśli wszędzie widzisz [OK] – gotowe, możesz grać!
+
+Jeśli widzisz [BLAD] – wróć do odpowiedniego kroku.
+
+
+
+
+
+===========================================
+
+OPCJONALNIE – LOSSLESS SCALING (tylko Z2 Go)
+
+===========================================
+
+
+
+Jeśli ciężka gra chodzi w 30-40 FPS i chcesz 60-80 FPS:
+
+
+
+1. Kup Lossless Scaling na Steam (kilka złotych).
+
+2. W ustawieniach gry ustaw: Borderless Window
+
+3. Uruchom Lossless Scaling przed grą.
+
+4. Kliknij Scale i wróć do gry.
+
+Program sam dorabia klatki bez obciążania procesora!
+
+
+
+
+
+===========================================
+
+WAŻNE – PAMIĘTAJ CO KILKA MIESIĘCY
+
+===========================================
+
+
+
+Wejdź na stronę Lenovo i sprawdź czy są nowe sterowniki:
+
+support.lenovo.com -> wpisz model konsoli
+
+
+
+Skrypt zablokował automatyczne aktualizacje sterowników
+
+– musisz to robić ręcznie żeby mieć zawsze najlepszą wersję.
